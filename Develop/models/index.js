@@ -1,17 +1,17 @@
-const Product = require('./product.js');
-const Category = require('./Category');
-const Tag = require('./Tag');
-const ProductTag = require('./ProductTag');
+const Product = require('../Develop/models/Product.js');
+const Category = require('../Develop/models/Category');
+const Tag = require('../Develop/models/Tag');
+const ProductTag = require('../Develop/models/ProductTag');
 
 Product.belongsTo(Category, {
 
-  foreignKey: ''
+  foreignKey: 'product_id'
   
 });
 
 Category.haveMany(Product, {
 
-  foreignKey: '',
+  foreignKey: 'product_id',
   ondDelete:Cascade
 });
 
@@ -32,7 +32,7 @@ Products.belongsToMany(Tag, {
       unique: false
     },
     
-    as: 'tag_prodduct'
+    as: 'tag_product'
   });
 
 module.exports = {
