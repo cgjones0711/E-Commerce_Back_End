@@ -9,10 +9,10 @@ Product.belongsTo(Category, {
   
 });
 
-Category.haveMany(Product, {
+Category.hasMany(Product, {
 
   foreignKey: 'product_id',
-  ondDelete: Cascade
+  ondDelete: "Cascade"
 });
 
 Product.belongsToMany(Tag, {
