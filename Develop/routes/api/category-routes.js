@@ -4,7 +4,9 @@ const { Category, Product } = require('../../models');
 // The `/api/categories` endpoint
 
 router.get('/', (req, res) => {
-  Category.findAll().then((categoryData) => {
+  Category.findAll({
+    include: [{ model: Product, required: false }]
+  }).then((categoryData) => {
     res.json(categoryData);
   });
 });
@@ -31,20 +33,11 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Category.update(
-    {
-      // All the fields you can update and the data attached to the request body.
-      id: req.body.id,
-      category_name: req.body.category_name,
-      
+  Category.update(req.body, {
+    where: {
+      id: req.params.id,
     },
-    {
-      // Gets the books based on the isbn given in the request parameters
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
+  })
     .then((updatedCategory) => {
       // Sends the updated book as a json response
       res.json(updatedCategory);
