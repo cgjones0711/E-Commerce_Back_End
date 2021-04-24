@@ -22,7 +22,7 @@ Product.belongsToMany(Tag, {
       unique: false
     },
     
-    as: 'product_tag'
+
   });
 
   Tag.belongsToMany(Product, {
@@ -32,7 +32,7 @@ Product.belongsToMany(Tag, {
       unique: false
     },
     
-    as: 'tag_product'
+  
   });
 
 module.exports = {
