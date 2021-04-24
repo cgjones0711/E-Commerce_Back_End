@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-const bcrypt = require('bcrpyt')
+
 
 class Category extends Model {}
 

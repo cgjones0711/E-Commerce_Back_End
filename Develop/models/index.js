@@ -12,10 +12,10 @@ Product.belongsTo(Category, {
 Category.haveMany(Product, {
 
   foreignKey: 'product_id',
-  ondDelete:Cascade
+  ondDelete: Cascade
 });
 
-Products.belongsToMany(Tag, {
+Product.belongsToMany(Tag, {
     
     through: {
       model: ProductTag,
