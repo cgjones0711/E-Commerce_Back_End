@@ -1,7 +1,7 @@
-const Product = require('../Develop/models/Product.js');
-const Category = require('../Develop/models/Category');
-const Tag = require('../Develop/models/Tag');
-const ProductTag = require('../Develop/models/ProductTag');
+const Product = require('../models/Product.js');
+const Category = require('../models/Category');
+const Tag = require('..//models/Tag');
+const ProductTag = require('../models/ProductTag');
 
 Product.belongsTo(Category, {
 
