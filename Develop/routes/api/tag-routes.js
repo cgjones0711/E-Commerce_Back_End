@@ -4,20 +4,18 @@ const { Tag, Product, ProductTag } = require('../../models');
 // The `/api/tags` endpoint
 
 
-  router.get('/', (req, res) => {
-   Tag.findAll({
-      include: [{ model: Product }, { model: ProductTag }],
-    }).then((tagData) => {
-      res.json(tagData);
-    });
+router.get('/', (req, res) => {
+  Tag.findAll().then((productData) => {
+    res.json(productData);
   });
+});
 
-  router.get('/:id', (req, res) => {
-    Tag.findOne({ id: req.body.id}).then((tagData) => {
-      res.json(tagData);
-    });
+// get one product
+router.get('/:id', (req, res) => {
+  Tag.findByPk(req.params.id).then((productData) => {
+    res.json(productData);
   });
-
+});
   router.post('/', (req, res) => {
     Tag.create({
       id: req.body.id,
