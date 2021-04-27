@@ -11,6 +11,14 @@ router.get('/', (req, res) => {
 });
 
 // get one product
+
+router.get('/:id', (req, res) => {
+  Tag.findByPk(req.params.id).then((tagData) => {
+    res.json(tagData);
+  });
+});
+
+
 router.post('/', (req, res) => {
   Post.create({
     id: req.body.id,
