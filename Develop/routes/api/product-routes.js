@@ -20,10 +20,10 @@ router.get('/:id', (req, res) => {
 // create new product
 router.post('/', (req, res) => {
     Product.create({
-        product_name: req.body.product_name,
-        price: req.body.price,
-        stock: req.body.stock,
-        tag_id: req.body.tag_id,
+        // product_name: req.body.product_name,
+        // price: req.body.price,
+        // stock: req.body.stock,
+        // tag_id: req.body.tag_id,
         
       })
         .then((newProduct) => {
@@ -66,7 +66,7 @@ router.put('/:id', (req, res) => {
   })
     .then((product) => {
       // find all associated tags from ProductTag
-      return ProductTag.findAll({ where: { product: req.params.id } });
+      return ProductTag.findAll({ where: { id: req.params.id } });
     })
     .then((productTags) => {
       // get list of current tag_ids

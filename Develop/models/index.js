@@ -5,7 +5,8 @@ const ProductTag = require('../models/ProductTag');
 
 Product.belongsTo(Category, {
 
-  foreignKey: 'category_id'
+  foreignKey: 'category_id',
+  ondDelete: 'Cascade'
   
 });
 
@@ -20,6 +21,7 @@ Product.belongsToMany(Tag, {
   foreignKey: 'product_id',
     through: {
       model: ProductTag,
+      as:"productTags",
       unique: false
     },
     
@@ -31,6 +33,7 @@ Product.belongsToMany(Tag, {
     foreignKey: 'tag_id',
     through: {
       model: ProductTag,
+      as:"productTags",
       unique: false
     },
     

@@ -11,25 +11,20 @@ router.get('/', (req, res) => {
 });
 
 // get one product
-router.get('/:id', (req, res) => {
-  Tag.findByPk(req.params.id).then((productData) => {
-    res.json(productData);
-  });
-});
-  router.post('/', (req, res) => {
-    Tag.create({
-      id: req.body.id,
-      tag_name: req.body.tag_name,
+router.post('/', (req, res) => {
+  Post.create({
+    id: req.body.id,
+    tag_name: req.body.tag_name,
+    
+  })
+    .then((newTag) => {
       
+      res.json(newTag);
     })
-      .then((newTag) => {
-        
-        res.json(newTag);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
-  });
+    .catch((err) => {
+      res.json(err);
+    });
+});
   
   router.put('/:id', (req, res) => {
     Tag.update(req.body, {

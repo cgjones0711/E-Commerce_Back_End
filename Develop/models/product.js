@@ -44,6 +44,7 @@ Product.init(
         unique: false,
       },
     },
+   
   },
 
   {
